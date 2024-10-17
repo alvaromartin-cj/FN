@@ -1,0 +1,316 @@
+/* Estilos actuales */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #1a1a1d;
+    color: #ffffff;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #ffcc00;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px #444;
+}
+
+.filter-buttons {
+    display: flex;                  /* Usar flexbox para centrar */
+    justify-content: center;        /* Centrar horizontalmente */
+    margin: 20px 0;                /* Espacio arriba y abajo */
+}
+
+.filter-button {
+    background-color: #ffcc00;
+    border: none;
+    color: #333;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 10px;                /* Espacio entre los botones */
+}
+
+.filter-button:hover {
+    background-color: #ff6600;
+}
+
+#item-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.item {
+    background-color: #2e2e38;
+    border: 2px solid #ffcc00;
+    border-radius: 10px;
+    margin: 15px;
+    padding: 15px;
+    width: 220px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.item:hover {
+    transform: scale(1.05);
+    border-color: #ff6600;
+}
+
+.item img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+h3 {
+    color: #ffcc00;
+    margin: 10px 0;
+}
+
+p {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #bbbbbb;
+}
+
+/* Estilos para el contador */
+#countdown-timer {
+    background-color: rgb(53, 0, 102); /* Fondo semitransparente */
+    color: #ffffff; /* Color de texto blanco */
+    font-size: 1.5rem; /* Tamaño de fuente */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 15px; /* Bordes redondeados */
+    border: 6px solid white;
+    margin: 20px 0; /* Margen superior e inferior */
+    text-align: center; /* Centrar el texto */
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.3); /* Sombra para un efecto de profundidad */
+    transition: transform 0.3s ease; /* Transición suave para el efecto hover */
+}
+
+/* Efecto hover */
+#countdown-timer:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el mouse */
+}
+
+/* Pantalla de carga principal */
+/* Pantalla de carga - ocupa toda la ventana */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000; /* Fondo negro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Se asegura de que esté al frente */
+}
+
+/* Transición suave para el contenido */
+#content {
+    opacity: 0; /* Comienza invisible */
+    transition: opacity 1.5s ease; /* Transición suave de opacidad */
+}
+
+#loading-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 10px; /* Un pequeño margen debajo del logo */
+    animation: rotate 2s linear infinite; /* Aplica la animación de rotación */
+}
+
+#loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#loading-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    animation: colorBlink 1s infinite; /* Parpadeo de colores */
+    position: relative;
+    margin-top: 10px; /* Colocar un pequeño margen debajo del logo */
+    transition: transform 0.5s ease-in-out; /* Movimiento suave */
+}
+
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Estilo para el texto de cargando en los items */
+.item .loading-text {
+    font-size: 1rem;
+    color: #ffcc00;
+    text-align: center;
+}
+
+#success-message {
+    display: none;
+    color: #00ff00;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+#modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 80%;
+    max-height: 80%;
+    text-align: center;
+}
+
+#scroll-to-top {
+    display: none; /* Ocultar el botón inicialmente */
+    position: fixed; /* Fijo en la esquina inferior derecha */
+    bottom: 20px; /* Espaciado desde el fondo */
+    right: 20px; /* Espaciado desde la derecha */
+    background-color: #ffffff; /* Color de fondo */
+    color: rgb(0, 0, 0); /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 20px; /* Bordes redondeados */
+    padding: 10px 17px; /* Espaciado interno */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    font-size: 36px; /* Tamaño de fuente */
+    z-index: 1000; /* Asegurarse de que esté sobre otros elementos */
+}
+
+#scroll-to-top:hover {
+    background-color: #44bd44; /* Color más oscuro al pasar el ratón */
+}
+
+#loading-message {
+    position: fixed;  /* Posición fija para centrarlo */
+    top: 50%;  /* Centramos verticalmente */
+    left: 50%;  /* Centramos horizontalmente */
+    transform: translate(-50%, -50%);  /* Ajuste para centrar exactamente */
+    font-size: 24px;  /* Tamaño de fuente */
+    color: #020202;  /* Color del texto */
+    z-index: 999;  /* Asegurarnos de que esté encima de otros elementos */
+}
+
+@keyframes blinkMessage {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.success-message-blink {
+    animation: blinkMessage 1s infinite; /* Solo parpadeo de opacidad */
+}
+
+@keyframes blinkCountdown {
+    0% {
+        background-color: white;
+        color: black;
+        border: 6px solid black;
+    }
+    50% {
+        background-color: red;
+        color: white;
+        border: 6px solid white;
+    }
+    100% {
+        background-color: white;
+        color: black;
+        border: 6px solid black;
+    }
+}
+
+.countdown-blink {
+    animation: blinkCountdown 1s infinite; /* Animación de parpadeo */
+}
+
+/* Definir animación para cambiar la posición del texto */
+@keyframes randomPosition {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(100px, 50px); } /* Placeholder, será reemplazado dinámicamente */
+}
+
+/* Animación para parpadear cambiando de color */
+@keyframes colorBlink {
+    0%, 100% { color: #fff; }
+    50% { color: #00ff00; } /* Cambia a verde */
+}
+
+/* Estilos para el texto "Cargando..." */
+#loading-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    animation: colorBlink 1s infinite; /* Parpadeo de colores */
+    position: relative;
+}
+
+/* Contenedor de la barra de progreso */
+#progress-container {
+    width: 100%; /* Ocupa el ancho del contenedor */
+    background-color: #333; /* Fondo oscuro */
+    height: 20px;
+    border-radius: 10px; /* Bordes redondeados */
+    margin-top: 15px; /* Espacio superior respecto al texto "Cargando..." */
+    overflow: hidden; /* Asegurarse de que la barra no sobresalga */
+}
+
+/* Barra de progreso que irá llenándose */
+#progress-bar {
+    height: 100%; /* Mantiene la altura del contenedor */
+    width: 0; /* Empieza en 0%, y crecerá hasta 100% */
+    background-color: #00ff00; /* Color verde de la barra */
+    border-radius: 13px;
+    transition: width 0.5s ease; /* Transición suave para que el crecimiento sea visible */
+}
