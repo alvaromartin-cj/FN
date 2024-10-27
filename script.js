@@ -104,7 +104,7 @@ function startCountdown() {
     function updateCountdown() {
         const now = new Date();
         // Cambiamos la hora objetivo
-        const targetTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 2, 0, 0);
+        const targetTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 1, 0, 0);
 
         // Si ya hemos pasado la hora objetivo, agregar un día para la próxima cuenta regresiva
         if (now >= targetTime) {
@@ -130,7 +130,7 @@ function startCountdown() {
             if (timeDiff <= 10000) {
                 countdownElement.classList.add('countdown-blink');
             } else {
-                countdownElement.classList.remove('countdown-blink'); // Asegurarse de que no parpadee si hay más de 10 segundos
+                countdownElement.classList.remove('countdown-blink');
             }
         }
     }
@@ -259,8 +259,6 @@ function filterItems(type) {
                     filteredItems = allItems.filter(itemData => {
                         const item = itemData.items ? itemData.items[0] : null;
                         if (!item) return false;
-
-                        // Aquí estamos haciendo la lógica de filtrado por tipo (puedes ajustar esta lógica si es necesario)
                         if (type === 'skin' && item.type.value === 'outfit') return true;
                         if (type === 'pico' && item.type.value === 'pickaxe') return true;
                         if (type === 'mochila' && item.type.value === 'backpack') return true;
